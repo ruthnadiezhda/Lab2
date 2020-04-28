@@ -10,21 +10,24 @@
 </head>
 <body class="container">
 <h2>Lista de Jobs</h2>
-<a class="btn btn-primary mt-4 mb-4" href="@{/shipper/new}">Nuevo Transportista</a>
+<a class="btn btn-primary mt-4 mb-4" href="@{/job/new}">Nuevo Transportista</a>
+<form method="post" th:action="@{/job/buscarsalario}">
+    <input name="searchField" class="form-control mb-3" type="text" placeholder="Search" aria-label="Search">
+</form>
+
 <table class="table table-sm">
     <tr>
-        <th>#</th>
-        <th>Nombre de la compañia</th>
-        <th>Teléfono</th>
-        <th></th>
-        <th></th>
+        <th>Nombre del trabajo</th>
+        <th>Rango de salarios</th>
     </tr>
-    <tr th:each="shipper, info : ${listaTransportistas}">
-        <td th:text="${info.index + 1}"></td>
-        <td th:text="${shipper.companyname}"></td>
-        <td th:text="${shipper.phone}"></td>
-        <td><a class="btn btn-primary" th:href="@{'/editar' + '?id=' + ${shipper.shipperId}}">Editar</a></td>
-        <td><a class="btn btn-danger" th:href="@{'/borrar' + '?id=' + ${shipper.shipperId}}">Borrar</a></td>
+    <tr th:each="job, info : ${jobList}">
+        <td th:text="${job.job_title}"></td>
+        <td th:text="${job.min_salary} + 'a' + ${job.max_salary}"></td>
+        <td><a class="btn btn-primary" th:href="@{/job/list}">Regresar a lista completa</a></td>
+        <td><a class="btn btn-primary" th:href="@{'/job/editar' + '?id=' + ${job.job_id}}">Editar</a>
+        </td>
+        <td><a class="btn btn-danger" th:href="@{'/job/borrar' + '?id=' + ${job.job_id}}">Borrar</a>
+        </td>
     </tr>
 </table>
 </body>
