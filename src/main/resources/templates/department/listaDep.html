@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+
+<pre>
+
+</pre>
+<a th:href="@{/department/nuevo}" class="btn btn-success">Crear Nueva Region</a>
+<pre>
+
+</pre>
+
+<form method="post" th:action="@{'/department/buscarDepa'}">
+
+    <input name="department_name" type="text" class="form-control mb-3" placeholder="Department Name" />
+
+    <button type="submit" class="btn btn-primary">Buscar</button>
+
+</form>
+
+
+
+<pre>
+
+</pre>
+
+
+<div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
+
+
+
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col"> ID</th>
+        <th scope="col"> NAME </th>
+        <th scope="col"> MANAGER ID </th>
+        <th scope="col"> LOCATION ID </th>
+        <th scope="col"> DEP SHOT NAME </th>
+
+        <th>OPCION</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="depa, vEstado : ${listaDepas}">
+        <th th:text="${vEstado.index + 1}" scope="row">1</th>
+        <td th:text="${depa.department_id}">Mark</td>
+        <td th:text="${depa.department_name}">Otto</td>
+        <td th:text="${depa.manager_id}">Otto</td>
+        <td th:text="${depa.location_id}">Otto</td>
+        <td th:text="${depa.department_short_name}">Otto</td>
+
+        <td>
+
+            <a th:href="@{'/department/editarDepa?id=' + ${depa.department_id}}" class="btn btn-warning"> Editar </a>
+
+            <a th:href="@{'/department/borrarDepa?id=' + ${depa.department_id}}" class="btn btn-danger"> Borrar </a>
+
+
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+
+</body>
+</html>
