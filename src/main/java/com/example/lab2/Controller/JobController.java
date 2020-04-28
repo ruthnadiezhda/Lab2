@@ -57,9 +57,8 @@ public class JobController {
         if (job.getJob_id() != null) {
             Optional<Job> opt = jobRepository.findById(job.getJob_id());
             jobRepository.save(job);
-
         }
-        return "redirect:/Job/list";
+        return "redirect:/job/list";
     }
 
 

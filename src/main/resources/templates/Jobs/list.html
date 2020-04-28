@@ -10,7 +10,8 @@
 </head>
 <body class="container">
 <h2>Lista de Jobs</h2>
-<a class="btn btn-primary mt-4 mb-4" href="@{/job/new}">Nuevo Transportista</a>
+<a class="btn btn-primary mt-4 mb-4" th:href="@{/job/new}">Nuevo Transportista</a>
+<a class="btn btn-primary" th:href="@{/job/list}">Regresar a lista completa</a>
 <form method="post" th:action="@{/job/buscarsalario}">
     <input name="searchField" class="form-control mb-3" type="text" placeholder="Search" aria-label="Search">
 </form>
@@ -22,8 +23,7 @@
     </tr>
     <tr th:each="job, info : ${jobList}">
         <td th:text="${job.job_title}"></td>
-        <td th:text="${job.min_salary} + 'a' + ${job.max_salary}"></td>
-        <td><a class="btn btn-primary" th:href="@{/job/list}">Regresar a lista completa</a></td>
+        <td th:text="${job.min_salary} +''+ 'a' + ''+ ${job.max_salary}"></td>
         <td><a class="btn btn-primary" th:href="@{'/job/editar' + '?id=' + ${job.job_id}}">Editar</a>
         </td>
         <td><a class="btn btn-danger" th:href="@{'/job/borrar' + '?id=' + ${job.job_id}}">Borrar</a>
