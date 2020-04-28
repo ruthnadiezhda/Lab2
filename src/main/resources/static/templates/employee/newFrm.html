@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Transportista</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+</head>
+<body class="container">
+<h2>Nuevo Empleado</h2><hr />
+<form method="post" th:action="@{'/employee/save'}">
+    <div class="form-group">
+        <label for="first_name">Nombre</label>
+        <input name="first_name" type="text" class="form-control" id="first_name">
+    </div>
+    <div class="form-group">
+        <label for="last_name">Apellido</label>
+        <input name="last_name" type="text" class="form-control" id="last_name">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input name="email" type="text" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+        <label for="phone_number">Teléfono</label>
+        <input name="phone_number" type="text" class="form-control" id="phone_number">
+    </div>
+
+    <div class="form-group">
+        <label for="job_id">Trabajo</label>
+        <input name="job_id" type="text" class="form-control" id="job_id">
+    </div>
+
+    <div class="form-group">
+        <label for="job_id">Trabajo</label>
+        <input name="job_id" type="text" class="form-control" id="job_id">
+    </div>
+    <div class="form-group">
+        <label for="salary">Salario</label>
+        <input name="salary" type="text" class="form-control" id="salary">
+    </div>
+
+    <div class="form-group">
+        <label for="manager_id">Jefe</label>
+        <input name="manager_id" type="text" class="form-control" id="manager_id">
+    </div>
+
+    <div class="form-group">
+        <label for="department_id">Jefe</label>
+        <input name="department_id" type="text" class="form-control" id="department_id">
+    </div>
+
+
+    <a th:href="@{'/employee/list'}" class="btn btn-danger">Cancelar</a>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
+</body>
+</html>
